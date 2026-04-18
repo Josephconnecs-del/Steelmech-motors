@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steelmech Motors | Expert Mechanical Repairs & Services</title>
+    <style>
+        /* --- BRAND THEME VARIABLES --- */
+        :root {
+            --primary-yellow: #FFD700; /* Safety Yellow */
+            --accent-red: #D32F2F;    /* Engine Red */
+            --deep-black: #121212;     /* Charcoal Black */
+            --light-grey: #F4F4F4;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+        }
+
+        /* Base Resets */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Black Ops One', 'Arial Black', sans-serif; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--deep-black); overflow-x: hidden; }
+        h1, h2, h3 { text-transform: uppercase; font-weight: 900; }
+        a { text-decoration: none; transition: 0.3s; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* Navigation */
+        header { background: var(--deep-black); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--primary-yellow); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--primary-yellow); font-size: 24px; letter-spacing: 2px; }
+        .logo span { color: var(--accent-red); }
+        .nav-links a { margin-left: 20px; color: var(--white); font-weight: 600; font-size: 14px; }
+        .nav-links a:hover { color: var(--primary-yellow); }
+
+        /* Page Handling */
+        .page { display: none; min-height: 80vh; animation: fadeIn 0.5s; }
+        .active-page { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Hero Styling (Home) */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            height: 80vh; display: flex; align-items: center; text-align: center; color: var(--white);
+        }
+        .hero h1 { font-size: 4rem; color: var(--primary-yellow); text-shadow: 2px 2px var(--accent-red); }
+        .hero p { font-size: 1.2rem; margin: 20px 0; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 15px 30px; background: var(--accent-red); color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        .btn:hover { background: var(--primary-yellow); color: var(--deep-black); }
+        .btn-wa { background: var(--whatsapp-green); color: white; border-radius: 50px; padding: 10px 20px; font-size: 14px; }
+
+        /* Services Grid */
+        .section-padding { padding: 80px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--light-grey); padding: 30px; border-left: 8px solid var(--primary-yellow); transition: 0.3s; }
+        .card:hover { border-left-color: var(--accent-red); background: #eee; }
+        .card h3 { color: var(--accent-red); margin-bottom: 10px; }
+
+        /* Gallery Section */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+        .placeholder-box { width: 100%; height: 200px; background: #ddd; border: 2px dashed #999; display: flex; align-items: center; justify-content: center; color: #777; font-weight: bold; }
+
+        /* Contact Section */
+        .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-box { background: var(--deep-black); color: white; padding: 40px; border-radius: 8px; }
+        .contact-box h2 { color: var(--primary-yellow); margin-bottom: 20px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; }
+
+        /* Footer */
+        footer { background: var(--deep-black); color: var(--white); text-align: center; padding: 40px 0; border-top: 5px solid var(--accent-red); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact-flex { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">STEELMECH <span>MOTORS</span></div>
+            <nav class="nav-links">
+                <a href="#" onclick="showPage('home')">HOME</a>
+                <a href="#" onclick="showPage('services')">SERVICES</a>
+                <a href="#" onclick="showPage('contact')">BOOKING</a>
+                <a href="https://wa.me/27000000000?text=I%20need%20a%20mechanic" class="btn-wa">WHATSAPP NOW</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home" class="page active-page">
+        <section class="hero">
+            <div class="container">
+                <h1>ENGINEERED FOR POWER</h1>
+                <p>Advanced Mechanical Repairs, Engine Overhauls, and Precision Tuning in Gqeberha.</p>
+                <button class="btn" onclick="showPage('contact')">BOOK AN APPOINTMENT</button>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 40px;">Why Choose Steelmech?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Qualified Technicians</h3>
+                        <p>Master mechanics with years of experience in heavy-duty and passenger vehicle repairs.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Advanced Tech</h3>
+                        <p>We use the latest diagnostic tools to find the fault before we touch your engine.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Fast Turnaround</h3>
+                        <p>We get you back on the road safely and swiftly with our efficient service bay management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="services" class="page">
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Our Mechanical Services</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Engine Overhauls</h3>
+                        <p>Full engine rebuilds, gasket replacements, and internal performance restoration.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Brake & Clutch</h3>
+                        <p>Total safety checks, disc skimming, and premium clutch replacements.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Major/Minor Servicing</h3>
+                        <p>Fluid changes, filter replacements, and a comprehensive 50-point safety inspection.</p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 60px; margin-bottom: 20px;">Workshop Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="placeholder-box">Reserved for Work Image 1</div>
+                    <div class="placeholder-box">Reserved for Work Image 2</div>
+                    <div class="placeholder-box">Reserved for Work Image 3</div>
+                    <div class="placeholder-box">Reserved for Work Image 4</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="contact" class="page">
+        <section class="section-padding">
+            <div class="container">
+                <div class="contact-flex">
+                    <div class="contact-box">
+                        <h2>BOOK NOW</h2>
+                        <p>Fill in the form for an appointment, or use the WhatsApp button below for instant confirmation.</p>
+                        <br>
+                        <form onsubmit="event.preventDefault(); alert('Booking Request Sent!');">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="text" placeholder="Car Model & Year" required>
+                            <textarea rows="4" placeholder="Describe the mechanical issue..."></textarea>
+                            <button type="submit" class="btn" style="width: 100%;">SEND REQUEST</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h2>Visit Our Shop</h2>
+                        <p style="margin: 20px 0;"><strong>Location:</strong> Gqeberha, Eastern Cape (Port Elizabeth)</p>
+                        <p><strong>Hours:</strong> Mon - Fri: 08:00 - 17:00 | Sat: 08:00 - 13:00</p>
+                        <br>
+                        <a href="https://wa.me/27000000000?text=I%20want%20to%20book%20a%20service" class="btn btn-wa" style="display: block; text-align: center; font-size: 1.2rem;">
+                            Book via WhatsApp Instant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>STEELMECH MOTORS</h3>
+            <p>Reliable Repairs. Rugged Results.</p>
+            <br>
+            <p style="font-size: 12px; opacity: 0.7;">&copy; 2026 Steelmech Motors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active-page');
+            // Scroll to top
+            window.scrollTo(0,0);
+        }
+    </script>
+
+</body>
+</html>
